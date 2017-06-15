@@ -1,0 +1,16 @@
+Request1 - HTTP GET
+URI: http://localhost:9090/sqltest/call/departments 
+URI: http://localhost:9090/sqltest/call/employees
+
+Request2 - HTTP GET
+URI: http://localhost:9090/sqltest/missingParam
+
+Request3 - HTTP GET
+URI: http://localhost:9090/sqltest/moreParams
+
+Request4 - HTTP GET
+URI: http://localhost:9090/sqltest/orderChangeParams
+
+Request5: HTTP GET
+URI: http://localhost:9090/sqltest/typeChangeParams
+
