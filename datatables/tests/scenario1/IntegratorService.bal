@@ -12,6 +12,8 @@ service routingService {
     @http:GET {}
     @http:Path {value:"/call/{key}"}
     resource getDataResource (message m, @http:PathParam {value:"key"} string pathValue) {
+        //BAL-209:Verifies the functionality of fetching all records from database. key: employees/departments
+        //BAL-213:Verifies the functionality of fetching all records from database for a large dataset
         message response = {};
         errors:TypeCastError e;
         int noOfRows;
@@ -36,6 +38,7 @@ service routingService {
     @http:GET {}
     @http:Path {value:"/missingParam"}
     resource missingParamDataResource (message m) {
+        //BAL-210:[N]Verifies the functionality of fetching all records when struct is missing parameters
         message response = {};
         errors:TypeCastError e;
         int noOfRows;
@@ -53,6 +56,7 @@ service routingService {
     @http:GET {}
     @http:Path {value:"/moreParams"}
     resource moreParamDataResource (message m) {
+        //BAL-211:[N]Verifies the functionality of fetching all records when struct is having more parameters
         message response = {};
         errors:TypeCastError e;
         int noOfRows;
@@ -70,6 +74,7 @@ service routingService {
     @http:GET {}
     @http:Path {value:"/orderChangeParams"}
     resource orderChangeParamDataResource (message m) {
+        //BAL-256:[N]Verifies the functionality of fetching all records when struct is having wrong order in parameters
         message response = {};
         errors:TypeCastError e;
         int noOfRows;
@@ -87,6 +92,7 @@ service routingService {
     @http:GET {}
     @http:Path {value:"/typeChangeParams"}
     resource typeChangeParamDataResource (message m) {
+       //BAL-212:[N]Verifies the functionality of fetching all records when struct is having mismatching parameters
         message response = {};
         errors:TypeCastError e;
         int noOfRows;
@@ -104,6 +110,7 @@ service routingService {
     @http:GET {}
     @http:Path {value:"/withAlias"}
     resource columnNameAliasResource (message m) {
+        //BAL-237:Verify the functionalty of fetching records when column aliases are used
         message response = {};
         errors:TypeCastError e;
         int noOfRows;
