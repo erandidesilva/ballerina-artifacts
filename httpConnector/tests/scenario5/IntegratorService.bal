@@ -11,6 +11,7 @@ service contentBasedRouting {
     @http:GET {}
     @http:Path {value:"/callPatch"}
     resource httpPatchResource (message m) {
+        // BAL-131:Verifies the functionality of using PATCH of http client connector
         string resourcePath = "/abc";
         string headerValue;
         message response;
@@ -24,6 +25,7 @@ service contentBasedRouting {
     @http:GET {}
     @http:Path {value:"/callHead"}
     resource httpHeadResource (message m) {
+        //BAL-130:Verifies the functionality of using HEAD of http client connector
         string resourcePath = "/abc";
         string headerValue;
         message response;

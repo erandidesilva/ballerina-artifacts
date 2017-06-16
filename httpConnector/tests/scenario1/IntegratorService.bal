@@ -1,53 +1,38 @@
 package scenario1;
 
 import ballerina.net.http;
-import ballerina.lang.messages;
-import ballerina.lang.strings;
-import ballerina.lang.system;
+
 
 @http:BasePath {value:"/http"}
 service contentBasedRouting {
-    string connection = "http://www.mocky.io/v2/593554c6100000a3123eea55";
-    string resourcePath = "";
+    string connection = "http://localhost:9793/BalRestService/rest/restService";
 
-    @http:POST{}
-    @http:Path {value:"/call/{header}"}
-    resource httpResource (message m, @http:PathParam {value:"header"}string headerKey) {
-        string headerValue;
-        system:println("Header Key" + headerKey);
-        message response;
-        message request = m;
-        system:println("1");
-        headerValue = messages:getStringPayload(request);
-        json j = {value:"myValue"};
-        system:println("2");
-        messages:setJsonPayload(request, j);
-        system:println("3");
-        if(!strings:equalsIgnoreCase(headerKey, "noValue") && !strings:equalsIgnoreCase(headerValue, "")){
-            system:println("Header Value" + headerValue);
-            messages:setHeader(request, headerKey, headerValue);
-            system:println("4");
-        }
-        system:println("5");
+
+    @http:GET {}
+    @http:Path {value:"/call/{code}"}
+    resource statusCodeResource (message m, @http:PathParam {value:"code"} string codeValue) {
+        //BAL-115:Verfies the functionality of recieving various status codes
+        // BAL-302:Verfies the functionality of sending special headers through ballerina
+        string resourcePath = "/codes/";
+        resourcePath = resourcePath + codeValue;
+        message request = {};
+        message response = {};
         http:ClientConnector httpCheck = create http:ClientConnector(connection);
-        system:println("6");
-        response = http:ClientConnector.post(httpCheck, resourcePath, request);
-        system:println("7");
+        response = http:ClientConnector.get (httpCheck, resourcePath, request);
         reply response;
 
     }
 
-    @http:POST{}
     @http:GET {}
     @http:Path {value:"/call"}
-    resource httpClientErrorResource (message m) {
-        string headerValue;
-        message response;
-        message request = m;
+    resource contentTypeResource (message m) {
+        //BAL-116:Verfies the functionality of recieving various content types
+        string resourcePath = "/contentType";
+        message response = {};
         http:ClientConnector httpCheck = create http:ClientConnector(connection);
-        response = http:ClientConnector.post(httpCheck, resourcePath, request);
-        system:println(messages:getHeader(response, "Connection"));
+        response = http:ClientConnector.get (httpCheck, resourcePath, m);
         reply response;
 
     }
+
 }

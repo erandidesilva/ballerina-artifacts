@@ -1,4 +1,4 @@
-package scenario3;
+package scenario2;
 
 import ballerina.net.http;
 
@@ -11,6 +11,7 @@ service contentBasedRouting {
     @http:GET {}
     @http:Path {value:"/call"}
     resource httpClientErrorResource (message m) {
+        //BAL-117 to BAL-124
         string headerValue;
         message response;
         message request = m;

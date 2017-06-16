@@ -1,4 +1,4 @@
-package scenario3;
+package scenario2;
 
 import ballerina.net.http;
 import ballerina.lang.system;

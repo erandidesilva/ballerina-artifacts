@@ -12,6 +12,7 @@ service contentBasedRouting {
     @http:GET {}
     @http:Path {value:"/callPost"}
     resource httpPostResource (message m) {
+        // BAL-127:Verifies the functionality of using POST of http client connector
         string resourcePath = "/orders";
         string headerValue;
         message response;
@@ -26,6 +27,7 @@ service contentBasedRouting {
     @http:GET {}
     @http:Path {value:"/callGet"}
     resource httpGetResource (message m) {
+        //BAL-126:Verifies the functionality of using GET of http client connector
         string resourcePath = "/orders/123";
         string headerValue;
         message response;
@@ -39,6 +41,7 @@ service contentBasedRouting {
     @http:POST{}
     @http:Path {value:"/callPut"}
     resource httpPutResource (message m) {
+        //BAL-128:Verifies the functionality of using PUT of http client connector
         string resourcePath = "/orders";
         string headerValue;
         message response;
@@ -52,6 +55,7 @@ service contentBasedRouting {
     @http:GET {}
     @http:Path {value:"/callDelete"}
     resource httpDeleteResource (message m, @http:QueryParam {value:"orderid"}string orderid) {
+        //BAL-129:Verifies the functionality of using DELETE of http client connector
         system:println(orderid);
         string resourcePath = "/orders/" + orderid;
         system:println(resourcePath);
