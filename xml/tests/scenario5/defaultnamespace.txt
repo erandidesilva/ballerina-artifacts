@@ -1,0 +1,109 @@
+<?xml version="1.0">
+  <PROCESS_PO_007 xmlns="http://example.com/ServiceName">
+    <CNTROLAREA> 
+        <BSR> 
+ 				<VERB>PROCESS</VERB> 
+          	<NOUN>PO</NOUN> 
+				<REVISION>007</REVISION> 
+			</BSR> 
+		 <SENDER> 
+				<LOGICALID/> 
+				<COMPONENT>BPEL</COMPONENT> 
+				<TASK>POISSUE</TASK> 
+				<REFERENCEID>refid</REFERENCEID> 
+				<CONFIRMATION>2</CONFIRMATION> 
+				<LANGUAGE>ENG</LANGUAGE> 
+				<CODEPAGE>US7ASCII</CODEPAGE> 
+				<AUTHID>APPS</AUTHID> 
+		 </SENDER> 
+			<DATETIME qualifier="CREATION"> 
+				<YEAR>2002</YEAR> 
+				<MONTH>10</MONTH> 
+				<DAY>09</DAY> 
+				<HOUR>16</HOUR> 
+				<MINUTE>45</MINUTE> 
+				<SECOND>47</SECOND> 
+				<SUBSECOND>356</SUBSECOND> 
+				<TIMEZONE>-0800</TIMEZONE> 
+			</DATETIME> 
+ 	</CNTROLAREA> 
+		<DATAAREA> 
+			<PROCESS_PO> 
+				<POORDERHDR> 
+					<DATETIME qualifier="DOCUMENT"> 
+						<YEAR>2002</YEAR> 
+						<MONTH>10</MONTH> 
+						<DAY>09</DAY> 
+						<HOUR>16</HOUR> 
+						<MINUTE>40</MINUTE> 
+						<SECOND>34</SECOND> 
+						<SUBSECOND>000</SUBSECOND> 
+						<TIMEZONE>+0100</TIMEZONE> 
+ 				</DATETIME> 
+					<OPERAMT qualifier="EXTENDED" type="T"> 
+						<VALUE>107.86</VALUE> 
+						<NUMOFDEC>6</NUMOFDEC> 
+						<SIGN>+</SIGN> 
+						<CURRENCY>USD</CURRENCY> 
+						<UOMVALUE>1</UOMVALUE> 
+						<UOMNUMDEC>0</UOMNUMDEC> 
+						<UOM>Ea</UOM> 
+			</OPERAMT> 
+				<POID>refid</POID> 
+				<POTYPE>Mixed</POTYPE> 
+				<CONTRACTS/> 
+				<DESCRIPTN/> 
+				<NOTES index="1"/> 
+				<USERAREA/> 
+				<PARTNER> 
+						<NAME index="1"/> 
+						<ONETIME>0</ONETIME> 
+						<PARTNRID/> 
+						<PARTNRTYPE>SoldTo</PARTNRTYPE> 
+						<PARTNRIDX>BWSANJOSE</PARTNRIDX> 
+				</PARTNER> 
+	</POORDERHDR> 
+		<POORDERLIN> 
+			<QUANTITY qualifier="ORDERED"> 
+						<VALUE>1</VALUE> 
+						<NUMOFDEC>0</NUMOFDEC> 
+						<SIGN>+</SIGN> 
+						<UOM>Ea</UOM> 
+		</QUANTITY> 
+			<OPERAMT qualifier="UNIT" type="T"> 
+						<VALUE>107.86</VALUE> 
+						<NUMOFDEC>6</NUMOFDEC> 
+						<SIGN>+</SIGN> 
+						<CURRENCY>USD</CURRENCY> 
+						<UOMVALUE>1</UOMVALUE> 
+						<UOMNUMDEC>0</UOMNUMDEC> 
+						<UOM>Ea</UOM> 
+		</OPERAMT> 
+			<POLINENUM>1</POLINENUM> 
+			<ITEMRV/> 
+			<NOTES index="1"/> 
+			<ITEM>LAP-DLX</ITEM> 
+			<POLINESCHD> 
+						<DATETIME qualifier="NEEDDELV"> 
+								<YEAR>2002</YEAR> 
+								<MONTH>10</MONTH> 
+								<DAY>09</DAY> 
+								<HOUR>00</HOUR> 
+								<MINUTE>00</MINUTE> 
+								<SECOND>00</SECOND> 
+								<SUBSECOND>000</SUBSECOND> 
+								<TIMEZONE>+0100</TIMEZONE> 
+			</DATETIME> 
+						<QUANTITY qualifier="ORDERED"> 
+								<VALUE>1</VALUE> 
+								<NUMOFDEC>0</NUMOFDEC> 
+								<SIGN>+</SIGN> 
+								<UOM>Ea</UOM> 
+			</QUANTITY> 
+						<PSCLINENUM>1</PSCLINENUM> 
+						<USERAREA/> 
+			</POLINESCHD> 
+		 </POORDERLIN> 
+	  </PROCESS_PO> 
+  </DATAAREA> 
+</PROCESS_PO_007>
