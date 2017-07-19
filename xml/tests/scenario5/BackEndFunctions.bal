@@ -2,6 +2,7 @@ package scenario5;
 
 import ballerina.lang.xmls;
 import ballerina.lang.system;
+import ballerina.lang.errors;
 
 function getSpecificChildWithNamespaceUrl(xml value)(xml extractedValue){
     xml firstLevelChildren = xmls:children(value);
@@ -105,3 +106,35 @@ function addAttributeWithEmptyNamespace(xml value)(xml extractedValue){
     extractedValue = specificChild;
     return;
 }
+
+function getAllAttributes(xml value)(map attributes){
+    xml firstLevelChildren = xmls:children(value);
+    xml specificChild = xmls:select(firstLevelChildren, "{http://example.com/ServiceName}CNTROLAREA");
+    attributes = <map> specificChild@;
+    system:println(attributes);
+    return;
+}
+
+function getAllAttributesWithNamespacePrefixes(xml value)(string attributeValue, errors:TypeCastError error){
+    xmlns "http://example.com/ServiceName/sample/test" as ns0;
+    xml firstLevelChildren = xmls:children(value);
+    xml specificChild = xmls:select(firstLevelChildren, "{http://example.com/ServiceName}CNTROLAREA");
+    xml secondLevelSpecificChild = xmls:selectChildren(specificChild, "{http://example.com/ServiceName/sample/test}DATETIME");
+    map attributes = <map> secondLevelSpecificChild@;
+    attributeValue, error = (string)attributes[ns0:qualifier];
+    system:println(attributes);
+    return;
+}
+
+function getAllAttributesWithDifferentNamespaceWithUrl(xml value)(string attributeValue, errors:TypeCastError error){
+    xml firstLevelChildren = xmls:children(value);
+    xml specificChild = xmls:select(firstLevelChildren, "{http://example.com/ServiceName}CNTROLAREA");
+    xml secondLevelSpecificChild = xmls:selectChildren(specificChild, "{http://example.com/ServiceName/sample/test}DATETIME");
+    map attributes = <map> secondLevelSpecificChild@;
+    attributeValue, error = (string)attributes["{http://example.com/ServiceName/sample/test}qualifier"];
+    system:println(attributeValue);
+    return;
+}
+
+
+

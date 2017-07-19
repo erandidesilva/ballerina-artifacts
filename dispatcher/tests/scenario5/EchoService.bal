@@ -4,9 +4,10 @@ import ballerina.net.http;
 import ballerina.lang.messages;
 import ballerina.lang.system;
 
-
-@http:BasePath {value:"/test"}
-service EchoService {
+@http:config {
+    basePath:"/test"
+}
+service <http> EchoService {
 
     @http:GET {}
     @http:POST {}

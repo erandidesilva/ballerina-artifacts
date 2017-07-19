@@ -1,6 +1,8 @@
 package scenario4;
 
 import ballerina.lang.xmls;
+import ballerina.lang.errors;
+import ballerina.lang.system;
 
 function getAttributeFromPayload(xml value)(string){
     xml firstLevelChild = xmls:children(value);
@@ -198,6 +200,46 @@ function updateAttributeNonUsedPrefixSameUrlToPayload(xml value)(xml updatedElem
     xmlns "http://xmlns.oracle.com/apps/ozf/soaprovider/plsql/ozf_sd_request_pub/create_sd_request/" as cre;
     specificSecondLevelChild@[cre:line] = "false";
     updatedElement = specificSecondLevelChild;
+    return;
+}
+
+function getAllAttributesWithDifferentNamespacePrefix(xml value)(string attributeValue, errors:TypeCastError error){
+    xmlns "http://xmlns.oracle.com/apps/ozf/soaprovider/plsql/ozf_sd_request_pub/create_sd_request/" as ns0;
+    xml firstLevelChild = xmls:children(value);
+    xml specificChild = xmls:select(firstLevelChild, ns0:P_SDR_LINES_TBL);
+    xml childrenOfSpecificChild = xmls:children(specificChild);
+    xml specificSecondLevelChild = xmls:select(childrenOfSpecificChild, ns0:P_SDR_LINES_TBL_ITEM);
+    map attributes = <map> specificSecondLevelChild@;
+    attributeValue, error = (string)attributes[ns0:tested];
+    system:println(attributes);
+    return;
+}
+
+function getAllAttributesWithNotUsedNamespacePrefix(xml value)(string attributeValue, errors:TypeCastError error){
+    xmlns "http://xmlns.oracle.com/apps/ozf/soaprovider/plsql/ozf_sd_request_pub/create_sd_request/" as cre;
+    xml firstLevelChild = xmls:children(value);
+    xml specificChild = xmls:select(firstLevelChild, cre:P_SDR_LINES_TBL);
+    xml childrenOfSpecificChild = xmls:children(specificChild);
+    xml specificSecondLevelChild = xmls:select(childrenOfSpecificChild, cre:P_SDR_LINES_TBL_ITEM);
+    map attributes = <map> specificSecondLevelChild@;
+    attributeValue, error = (string)attributes[cre:tested];
+    system:println(attributes);
+    return;
+}
+
+function addChildrenToXmlWithPrefix(xml value)(xml updatedSequence){
+  //  xmlns "http://xmlns.oracle.com/apps/ozf/soaprovider/plsql/ozf_sd_request_pub/create_sd_request/" as cre;
+ //   xml firstLevelChild = xmls:children(value);
+ //   xml specificChild = xmls:select(firstLevelChild, cre:P_SDR_LINES_TBL);
+  //  xml childrenOfSpecificChild = xmls:children(specificChild);
+  //  xml specificSecondLevelChild = xmls:select(childrenOfSpecificChild, cre:P_SDR_LINES_TBL_ITEM);
+ //   string uName = "{http://xmlns.oracle.com/apps/ozf/soaprovider/plsql/ozf_sd_request_pub/create_sd_request/}PRODUCT_TYPE";
+  //  string aName = "{http://xmlns.oracle.com/apps/ozf/soaprovider/plsql/ozf_sd_request_pub/create_sd_request/}checked";
+  //  string text = "added element";
+  //  string attributeValue = "true";
+  //  xml elementToAdd = xml`<${uName}  ${aName}="${attributeValue}">${text}</${uName}>`;
+  //  xmls:setChildren(specificSecondLevelChild, elementToAdd);
+  //  updatedSequence = specificSecondLevelChild;
     return;
 }
 

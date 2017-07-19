@@ -1,0 +1,91 @@
+[2017-07-19 14:07:28,492]  ERROR {org.ballerinalang.services.dispatchers.http.HTTPErrorHandler} - no matching resource found for path : /test/foo/1 , method : POST  
+[2017-07-19 14:07:40,301]  INFO  {org.wso2.carbon.transport.http.netty.listener.HTTPServerConnector} - Initializing  HTTP Transport Listener  
+[2017-07-19 14:07:40,307]  INFO  {org.wso2.carbon.transport.http.netty.listener.HTTPServerConnector} - Initializing  HTTP Transport Listener  
+[2017-07-19 14:07:40,709]  INFO  {org.ballerinalang.services.dispatchers.http.HTTPServicesRegistry} - Service deployed : EchoService with context /test  
+[2017-07-19 14:07:40,760]  INFO  {org.wso2.carbon.transport.http.netty.listener.ServerConnectorController} - Started listener http-9090  
+[2017-07-19 14:07:40,761]  INFO  {org.wso2.carbon.transport.http.netty.listener.ServerConnectorController} - HTTP Interface default starting on host  0.0.0.0 and port 9090  
+[2017-07-19 14:16:54,548]  INFO  {org.wso2.carbon.transport.http.netty.listener.HTTPServerConnector} - Initializing  HTTP Transport Listener  
+[2017-07-19 14:16:54,555]  INFO  {org.wso2.carbon.transport.http.netty.listener.HTTPServerConnector} - Initializing  HTTP Transport Listener  
+[2017-07-19 14:16:54,976]  INFO  {org.ballerinalang.services.dispatchers.http.HTTPServicesRegistry} - Service deployed : EchoService with context /test  
+[2017-07-19 14:16:55,031]  INFO  {org.wso2.carbon.transport.http.netty.listener.ServerConnectorController} - Started listener http-9090  
+[2017-07-19 14:16:55,031]  INFO  {org.wso2.carbon.transport.http.netty.listener.ServerConnectorController} - HTTP Interface default starting on host  0.0.0.0 and port 9090  
+[2017-07-19 14:17:31,205]  INFO  {org.wso2.carbon.transport.http.netty.listener.HTTPServerConnector} - Initializing  HTTP Transport Listener  
+[2017-07-19 14:17:31,212]  INFO  {org.wso2.carbon.transport.http.netty.listener.HTTPServerConnector} - Initializing  HTTP Transport Listener  
+[2017-07-19 14:17:31,627]  INFO  {org.ballerinalang.services.dispatchers.http.HTTPServicesRegistry} - Service deployed : EchoService with context /test  
+[2017-07-19 14:17:31,677]  INFO  {org.wso2.carbon.transport.http.netty.listener.ServerConnectorController} - Started listener http-9090  
+[2017-07-19 14:17:31,677]  INFO  {org.wso2.carbon.transport.http.netty.listener.ServerConnectorController} - HTTP Interface default starting on host  0.0.0.0 and port 9090  
+[2017-07-19 14:19:16,501]  ERROR {org.ballerinalang.runtime.ServerConnectorMessageHandler} - error: null 
+org.ballerinalang.util.exceptions.BallerinaException
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.validateHTTPMethod(Node.java:136)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.getResource(Node.java:117)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:107)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:89)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:89)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:97)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:89)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:97)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:89)
+	at org.ballerinalang.services.dispatchers.uri.URITemplate.matches(URITemplate.java:46)
+	at org.ballerinalang.services.dispatchers.http.HTTPResourceDispatcher.findResource(HTTPResourceDispatcher.java:55)
+	at org.ballerinalang.runtime.ServerConnectorMessageHandler.handleInbound(ServerConnectorMessageHandler.java:95)
+	at org.ballerinalang.runtime.threadpool.RequestWorkerThread.run(RequestWorkerThread.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+[2017-07-19 14:19:16,503]  ERROR {org.ballerinalang.services.dispatchers.http.HTTPErrorHandler} - null  
+[2017-07-19 14:19:28,329]  ERROR {org.ballerinalang.runtime.ServerConnectorMessageHandler} - error: null 
+org.ballerinalang.util.exceptions.BallerinaException
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.validateHTTPMethod(Node.java:136)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.getResource(Node.java:117)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:107)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:89)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:89)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:97)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:89)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:97)
+	at org.ballerinalang.services.dispatchers.uri.parser.Node.matchAll(Node.java:89)
+	at org.ballerinalang.services.dispatchers.uri.URITemplate.matches(URITemplate.java:46)
+	at org.ballerinalang.services.dispatchers.http.HTTPResourceDispatcher.findResource(HTTPResourceDispatcher.java:55)
+	at org.ballerinalang.runtime.ServerConnectorMessageHandler.handleInbound(ServerConnectorMessageHandler.java:95)
+	at org.ballerinalang.runtime.threadpool.RequestWorkerThread.run(RequestWorkerThread.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+[2017-07-19 14:19:28,330]  ERROR {org.ballerinalang.services.dispatchers.http.HTTPErrorHandler} - null  
+[2017-07-19 14:22:44,730]  ERROR {org.ballerinalang.runtime.ServerConnectorMessageHandler} - error: no matching resource found for path : /test/* , method : OPTIONS 
+org.ballerinalang.util.exceptions.BallerinaException: no matching resource found for path : /test/* , method : OPTIONS
+	at org.ballerinalang.services.dispatchers.http.HTTPResourceDispatcher.findResource(HTTPResourceDispatcher.java:67)
+	at org.ballerinalang.runtime.ServerConnectorMessageHandler.handleInbound(ServerConnectorMessageHandler.java:95)
+	at org.ballerinalang.runtime.threadpool.RequestWorkerThread.run(RequestWorkerThread.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+[2017-07-19 14:22:44,731]  ERROR {org.ballerinalang.services.dispatchers.http.HTTPErrorHandler} - no matching resource found for path : /test/* , method : OPTIONS  
+[2017-07-19 14:22:55,911]  ERROR {org.ballerinalang.runtime.ServerConnectorMessageHandler} - error: no matching service found for path : /* 
+org.ballerinalang.util.exceptions.BallerinaException: no matching service found for path : /*
+	at org.ballerinalang.services.dispatchers.http.HTTPServiceDispatcher.findService(HTTPServiceDispatcher.java:92)
+	at org.ballerinalang.runtime.ServerConnectorMessageHandler.handleInbound(ServerConnectorMessageHandler.java:82)
+	at org.ballerinalang.runtime.threadpool.RequestWorkerThread.run(RequestWorkerThread.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+[2017-07-19 14:22:55,912]  ERROR {org.ballerinalang.services.dispatchers.http.HTTPErrorHandler} - no matching service found for path : /*  
+[2017-07-19 14:39:09,992]  ERROR {org.ballerinalang.runtime.ServerConnectorMessageHandler} - error: no matching service found for path : /customers/200/orders 
+org.ballerinalang.util.exceptions.BallerinaException: no matching service found for path : /customers/200/orders
+	at org.ballerinalang.services.dispatchers.http.HTTPServiceDispatcher.findService(HTTPServiceDispatcher.java:92)
+	at org.ballerinalang.runtime.ServerConnectorMessageHandler.handleInbound(ServerConnectorMessageHandler.java:82)
+	at org.ballerinalang.runtime.threadpool.RequestWorkerThread.run(RequestWorkerThread.java:35)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+[2017-07-19 14:39:09,992]  ERROR {org.ballerinalang.services.dispatchers.http.HTTPErrorHandler} - no matching service found for path : /customers/200/orders  
+[2017-07-19 14:40:58,094]  INFO  {org.wso2.carbon.transport.http.netty.listener.HTTPServerConnector} - Initializing  HTTP Transport Listener  
+[2017-07-19 14:40:58,100]  INFO  {org.wso2.carbon.transport.http.netty.listener.HTTPServerConnector} - Initializing  HTTP Transport Listener  
+[2017-07-19 14:40:58,521]  INFO  {org.ballerinalang.services.dispatchers.http.HTTPServicesRegistry} - Service deployed : EchoService with context /test  
+[2017-07-19 14:40:58,576]  INFO  {org.wso2.carbon.transport.http.netty.listener.ServerConnectorController} - Started listener http-9090  
+[2017-07-19 14:40:58,576]  INFO  {org.wso2.carbon.transport.http.netty.listener.ServerConnectorController} - HTTP Interface default starting on host  0.0.0.0 and port 9090  

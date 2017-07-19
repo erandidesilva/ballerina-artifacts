@@ -4,8 +4,10 @@ import ballerina.net.http;
 import ballerina.lang.messages;
 
 
-@http:BasePath {value:"/test"}
-service EchoService {
+@http:config {
+    basePath:"/test"
+}
+service <http> EchoService {
 
     @http:Path {value:"/call"}
     resource echoResource (message m) {
@@ -55,14 +57,6 @@ service EchoService {
         reply response;
     }
 
-     @http:Path {value:"/*/bar"}
-     resource echoStarBarResource (message m) {
-        message response = {};
-        string payload = "This is a test 10...............";
-        messages:setStringPayload(response,payload);
-        reply response;
-    }
-
     @http:Path {value:"/foo/bar/poo"}
      resource echoFooBarPooResource (message m) {
         message response = {};
@@ -91,22 +85,6 @@ service EchoService {
      resource echoFooBarPooStarResource (message m) {
         message response = {};
         string payload = "This is a test 14...............";
-        messages:setStringPayload(response,payload);
-        reply response;
-    }
-
-     @http:Path {value:"/foo/bar/*/tee"}
-     resource echoFooBarStarTeeResource (message m) {
-        message response = {};
-        string payload = "This is a test 15...............";
-        messages:setStringPayload(response,payload);
-        reply response;
-    }
-
-    @http:Path {value:"/foo/bar/*/tee/*"}
-     resource echoFooBarStarTeeStarResource (message m) {
-        message response = {};
-        string payload = "This is a test 15...............";
         messages:setStringPayload(response,payload);
         reply response;
     }

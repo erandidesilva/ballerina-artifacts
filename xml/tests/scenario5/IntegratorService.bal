@@ -3,6 +3,8 @@ package scenario5;
 import ballerina.net.http;
 import ballerina.lang.messages;
 import ballerina.lang.xmls;
+import ballerina.lang.errors;
+import ballerina.lang.system;
 
 service <http> XmlWithDefaultNamespaceTestService {
 
@@ -202,4 +204,57 @@ service <http> XmlWithDefaultNamespaceTestService {
         }
         reply response;
     }
+
+    @http:POST {}
+    resource getAllAttributesWithoutNamespacesResource (message m) {
+        message response = {};
+        map value;
+        string attributeValue;
+        errors:TypeCastError err;
+        xml payload = messages:getXmlPayload(m);
+        value = getAllAttributes(payload);
+        attributeValue, err = (string)value["checked"];
+        if (err == null){
+            messages:setStringPayload(response, attributeValue);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource getAllAttributesWithNamespacePrefixResource (message m) {
+        message response = {};
+        string attributeValue;
+        errors:TypeCastError err;
+        errors:StackTrace trace;
+        xml payload = messages:getXmlPayload(m);
+        attributeValue, err = getAllAttributesWithNamespacePrefixes(payload);
+        if (err == null){
+            messages:setStringPayload(response, attributeValue);
+        }
+        else{
+             messages:setStringPayload(response, "Something has gone wrong.Please try again");
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource getAllAttributesWithNamespaceUrlResource (message m) {
+        message response = {};
+        string attributeValue;
+        errors:TypeCastError err;
+        errors:StackTrace trace;
+        xml payload = messages:getXmlPayload(m);
+        attributeValue, err = getAllAttributesWithDifferentNamespaceWithUrl(payload);
+        system:println(attributeValue);
+        system:println(err);
+        if (err == null){
+            messages:setStringPayload(response, attributeValue);
+        }
+        else{
+             messages:setStringPayload(response, "Something has gone wrong.Please try again");
+        }
+        reply response;
+    }
+
+
 }

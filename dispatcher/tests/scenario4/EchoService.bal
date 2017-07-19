@@ -4,8 +4,10 @@ import ballerina.net.http;
 import ballerina.lang.messages;
 
 
-@http:BasePath {value:"/test"}
-service EchoService {
+@http:config {
+    basePath:"/test"
+}
+service <http> EchoService {
 
     @http:Path {value:"/foo/{bar}"}
     resource echoMinusResource (message m, @http:PathParam {value:"bar"} string bar) {
