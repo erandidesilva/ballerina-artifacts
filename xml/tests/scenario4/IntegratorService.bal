@@ -343,7 +343,126 @@ service <http> XmlWithMultiplePrefixesTestService {
         xml responseXml;
         message response = {};
         xml payload = messages:getXmlPayload(m);
-        //responseXml = addChildrenToXmlWithPrefix(payload);
+        responseXml = addChildrenToXmlWithSameNamespace(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addNewChildElementDifferentNamespaceForElementResource (message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenToXmlWithDifferentNamespaceForElement(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addNewChildElementDifferentNamespaceForAttributeResource (message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenToXmlWithDifferentNamespaceForAttribute(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addNewChildElementDifferentNamespaceResource (message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenToXmlWithDifferentNamespace(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addNewChildSameNamespaceExistingPrefixResource (message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenToXmlWithSameNamespaceExistingPrefix(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addNewChildDifferentNamespaceExistingPrefixResource (message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenToXmlWithDifferentNamespaceWithExistingPrefix(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addNewChildSameNamespaceWithoutPrefixResource (message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenToXmlWithSameNamespaceWithoutPrefix(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource checkDeepCopyResource (message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = checkDeepCopy(payload);
         if (xmls:isSingleton(responseXml)){
             messages:setXmlPayload(response, responseXml);
         }

@@ -256,5 +256,107 @@ service <http> XmlWithDefaultNamespaceTestService {
         reply response;
     }
 
+    @http:POST {}
+    resource addChildrenOnDefaultNamespaceToXmlWithPrefixedNamespaceResource(message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenOnDefaultNamespaceToXmlWithPrefixedNamespace(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addChildrenOnDefaultNamespaceToXmlWithDefaultNamespaceResource(message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenUsingDefaultNamespaceToXmlWithDefaultNamespace(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addChildrenOnPrefixedNamespaceToXmlWithDefaultNamespaceResource(message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenUsingPrefixedNamespaceToXmlWithDefaultNamespace(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addChildrenOnPrefixedNamespaceAttributeOnlyToXmlWithDefaultNamespaceResource(message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenUsingPrefixedNamespaceAttributeOnlyToXmlWithDefaultNamespace(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addChildrenOnEmptydNamespaceToXmlWithDefaultNamespaceResource(message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenUsingEmptyNamespaceToXmlWithDefaultNamespace(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
+    @http:POST {}
+    resource addChildrenOnPrefixeddNamespaceToXmlWithPrefixedNamespaceResource(message m) {
+        xml responseXml;
+        message response = {};
+        xml payload = messages:getXmlPayload(m);
+        responseXml = addChildrenOnPrefixedNamespaceToXmlWithPrefixedNamespace(payload);
+        if (xmls:isSingleton(responseXml)){
+            messages:setXmlPayload(response, responseXml);
+        }
+        else{
+           xml value = xmls:parse("<test></test>");
+           xmls:setChildren(value, responseXml);
+           messages:setXmlPayload(response, value);
+        }
+        reply response;
+    }
+
 
 }
